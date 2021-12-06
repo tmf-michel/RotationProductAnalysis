@@ -12,14 +12,14 @@ import getpass
 # registeredUser = ('Admin')
 # registeredPW = ('123')
 
-users = {'jorge': '1234', 'fonso':'naruto', }
+users = {'jorge': '1234', 'admin':'2021' }
 
-usuario = 'karime'
-pswrd = '456'
+# usuario = 'karime'
+# pswrd = '456'
 # print(users.get('jorge'))
  
 def login(usuario, passw):
-  user = users.get(usuario)
+  user = users.get(usuario.lower())
   # print(user)
   if user == passw:
     #Usuario y contraseña correctas
@@ -39,6 +39,7 @@ def userAccess():
   for i in range(3):
     usuario=input('User: ')
     passw = getpass.getpass('Password: ')
+
     userLogin = login(usuario, passw)
     if userLogin==0:
       print('Bienvenido ',usuario, '\n')
