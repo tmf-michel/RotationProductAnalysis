@@ -34,7 +34,6 @@ def salesPerMonthRaw(year):
   prices = priceByProduct()
   
   for month in monthlyProducts:
-    print(month)
     sum = 0
     for product in monthlyProducts[month]:
       # print(prices[product])
