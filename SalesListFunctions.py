@@ -1,4 +1,4 @@
-from lifestore_file import lifestore_products, lifestore_sales
+from lifestore_file import lifestore_sales
 from CommonFunctions import changeIdToName, sort, numberToMonth
 
 # Función para extraer las ventas mensuales de productos en un diccionario, 

@@ -2,53 +2,51 @@ from lifestore_file import lifestore_products, lifestore_sales
 from SalesListFunctions import salesByProduct, monthlySalesByProduct
 from CommonFunctions import sortInverse, numberToMonth
 
-# def qtyByCategory():
-#   cat = {}
-#   # lifestore_products = [id_product, name, price, category, stock]
-#   for item in lifestore_products:
-#     cat_qty = cat.get(item[3])
-#     if cat_qty == None:
-#       # Agregar el producto ID y cantidad de 1
-#       cat.setdefault(item[3],1)
-#     else:
-#       cat[item[3]] = cat_qty+1
-#   print("Cat: \n", cat)
-
-# SI
+# Función para organizar los productos dentro de cada categoria
 def productsByCategory():
   categories = {}
+  # Bucle principal que copia los ID y categorias de cada producto y los organiza
+  # en un diccionario categories{}
   for product in lifestore_products:
     category = categories.get(product[3])
     if category == None:
       categories.setdefault(product[3], {product[0]: product[1].split(',')[0]})
     else:
       categories[product[3]].update({product[0]:product[1].split(',')[0]})
-  # print(categories)
   # categories = {category: {product_id: product_name}}
   return categories
 
-# si
+# Función para organizar las ventas por categoría
 def sortByCategoriesSales(prodByCategories, year):
+  # Se obtiene los ids de cada producto como key del diccionario, y las ventas como value
   sales = salesByProduct(lifestore_sales, year)
-  # print(sales)
+  # sales = {product_id: sales_qty}
   categoriesDict = {}
+  # Bucle para extraer el id y las ventas desde sales, y las categorías desde proByCategories y juntarlas
   for category in prodByCategories:
     dict1 = {}
-    # print(prodByCategories)
+    # Bucle secundario para extraer el product_id de cada categoría
     for product in prodByCategories[category]:
-      # print(product, ':', prodByCategories[category][product])
+      # Si el product_id se vendió se agrega al diccionario con sus ventas respectivas
       if product in sales:
         dict1.update({product: sales[product]})
+    # Se organizan de forma ascendente 
     dict1 = sortInverse(dict1, len(dict1))
+    # Se pegan a la categoría correspondiente
     categoriesDict.update({category: dict1})
-  # print(categoriesDict)
+  # categoriesDict = { category: { product_id: sales_qty } }
   return categoriesDict
 
+# Función para obtener los productos menos vendidos por categoría
+# Recibe como parámetros la cantidad de datos a mostrar, y el año deseado
 def lessSelledByCategory(qty, year):
+  
   prodByCategories = productsByCategory()
-  # print(prodByCategories)
+  # prodByategories = {category: {product_id: product_name}}
+  
   sortedCategories = sortByCategoriesSales(prodByCategories, year)
-  # print(sortedCategories)
+  # sortedCategories = { category: { product_id: sales_qty } }
+  
   categoryDict = {}
   for category in sortedCategories:
     arrCategory = []
