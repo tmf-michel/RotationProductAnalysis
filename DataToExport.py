@@ -6,7 +6,7 @@ from Reviews import bestReviewsRaw, bestMonthlyReviewsRaw, worstReviewsRaw, wors
 from TotalSales import salesPerMonthRaw
 from openpyxl import Workbook
 wb = Workbook()
-ruta = 'REPORTE-01-CHAVARIN-JORGE.xlsx'
+ruta = 'REPORTE-01-LIFESTORE.xlsx'
 def exportData(qtyLow, qtyHigh, year):
   rawData = {}
   mostSelledProducts = mostSelledProductsRaw(qtyLow, year)

@@ -37,7 +37,7 @@ Para este proyecto se analizaron las reseñas, ventas y búsquedas de cada produ
 5. Al seleccionar la opción `10) Datos crudos para exportar`, se generará un archivo con extensión .xlsx con todas las opciones del menú.
 
 ## Analizando Resultados 📦
-Podras analizar los resultados desde la consola, o leyendo el archivo ___ de este proyecto.
+Podras analizar los resultados desde la consola, o leyendo el archivo `../REPORTE-01-LIFESTORE` de este proyecto.
 
 ## Autor ✒️
 - [Jorge Chavarín](https://www.linkedin.com/in/jorge-chavarin/)
