@@ -2,15 +2,15 @@
 # Date: 04/12/2021
 
 # Archivos y ibrerías importados
-from Login import userAccess
-from SalesListFunctions import mostSelledProducts, mostSelledProductsMonthly, monthlyRefundByProduct
-from SearchListFunctions import mostSearchedProducts
-from SalesCategoryFunctions import lessSelledByCategory, lessSelledByMonthlyCategory, totalSalesByCategory, incomeByCategory
-from SearchCategoryFunctions import lessSearchedByCategory, categoriesSearched
-from Reviews import bestReviews, bestMonthlyReviews, worstReviews, worstMonthlyReviews, reviewsByCategory, monthlyReviewsByCategory
-from TotalSales import salesPerMonth
-from DataToExport import exportData
-from CommonFunctions import clear
+from src.Login import userAccess
+from src.SalesListFunctions import mostSelledProducts, mostSelledProductsMonthly, monthlyRefundByProduct
+from src.SearchListFunctions import mostSearchedProducts
+from src.SalesCategoryFunctions import lessSelledByCategory, lessSelledByMonthlyCategory, totalSalesByCategory, incomeByCategory
+from src.SearchCategoryFunctions import lessSearchedByCategory, categoriesSearched
+from src.Reviews import bestReviews, bestMonthlyReviews, worstReviews, worstMonthlyReviews, reviewsByCategory, monthlyReviewsByCategory
+from src.TotalSales import salesPerMonth
+from src.DataToExport import exportData
+from src.CommonFunctions import clear
 
 
 #inicializacion de procesos
@@ -104,7 +104,7 @@ while(True):
     # Except para cuando el usuario teclee algo que no sea un número
       except Exception as e:
         print('\nEsta opción es inválida. Vuelve a intentarlo.\n')
-        print(e)
+        # print(e)
   # El usuario introdujo más de 3 veces la contraseña, por lo tanto 'access' vale False
   else:
     print("\n\n ERROR! Ha excedido el número máximo de intentos.\n")

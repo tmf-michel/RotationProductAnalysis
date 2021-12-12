@@ -1,4 +1,4 @@
-from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
+from src.lifestore_file import lifestore_products
 import operator       # librería ocupada por las funciones sort() en itemgetter()
 
 # Función para reemplazar los IDs por los nombres de los productos en un diccionario

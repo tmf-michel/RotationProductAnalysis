@@ -1,5 +1,5 @@
-from lifestore_file import lifestore_products, lifestore_searches
-from CommonFunctions import changeIdToName, sort
+from src.lifestore_file import lifestore_searches
+from src.CommonFunctions import changeIdToName, sort
 """
 This is the LifeStore_SalesList data:
 

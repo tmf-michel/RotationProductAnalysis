@@ -1,4 +1,4 @@
-from lifestore_file import lifestore_products, lifestore_sales 
+from src.lifestore_file import lifestore_products, lifestore_sales 
 
 # lifestore_sales = [id_sale, id_product, score (from 1 to 5), date, refund (1 true or 0 false)]
 # lifestore_products = [id_product, name, price, category, stock]

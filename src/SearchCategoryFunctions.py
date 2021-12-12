@@ -1,6 +1,6 @@
-from SearchListFunctions import queriesByProduct
-from SalesCategoryFunctions import productsByCategory, printTable
-from CommonFunctions import sortInverse
+from src.SearchListFunctions import queriesByProduct
+from src.SalesCategoryFunctions import productsByCategory, printTable
+from src.CommonFunctions import sortInverse
 
 # Función para imprimir en versión tabla los prudctos menos buscados
 # por categoría

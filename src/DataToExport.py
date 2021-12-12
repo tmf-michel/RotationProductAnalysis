@@ -1,9 +1,9 @@
-from SalesListFunctions import mostSelledProductsRaw, mostSelledProductsMonthlyRaw
-from SearchListFunctions import mostSearchedProductsRaw
-from SalesCategoryFunctions import lessSelledByCategoryRaw, lessSelledByMonthlyCategoryRaw
-from SearchCategoryFunctions import lessSearchedByCategoryRaw
-from Reviews import bestReviewsRaw, bestMonthlyReviewsRaw, worstReviewsRaw, worstMonthlyReviewsRaw, reviewsByCategoryRaw, monthlyReviewsByCategoryRaw
-from TotalSales import salesPerMonthRaw
+from src.SalesListFunctions import mostSelledProductsRaw, mostSelledProductsMonthlyRaw
+from src.SearchListFunctions import mostSearchedProductsRaw
+from src.SalesCategoryFunctions import lessSelledByCategoryRaw, lessSelledByMonthlyCategoryRaw
+from src.SearchCategoryFunctions import lessSearchedByCategoryRaw
+from src.Reviews import bestReviewsRaw, bestMonthlyReviewsRaw, worstReviewsRaw, worstMonthlyReviewsRaw, reviewsByCategoryRaw, monthlyReviewsByCategoryRaw
+from src.TotalSales import salesPerMonthRaw
 from openpyxl import Workbook
 wb = Workbook()
 ruta = 'REPORTE-01-LIFESTORE.xlsx'

@@ -1,6 +1,6 @@
-from lifestore_file import lifestore_products, lifestore_sales 
-from SalesListFunctions import salesByProduct, monthlySalesByProduct
-from CommonFunctions import sortInverse, numberToMonth
+from src.lifestore_file import lifestore_products, lifestore_sales 
+from src.SalesListFunctions import salesByProduct, monthlySalesByProduct
+from src.CommonFunctions import sortInverse, numberToMonth
 
 # Función para organizar los productos dentro de cada categoria
 def productsByCategory():
