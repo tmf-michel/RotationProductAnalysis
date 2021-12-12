@@ -66,7 +66,7 @@ def sortByCategoriesSearches(prodByCategories):
   for category in prodByCategories:
     dict1 = {}
     # print(prodByCategories)
-    # Bucla interno para comparar los productos ya divididos por categorías y agregarle su cantidad de búsquedas
+    # Bucle interno para comparar los productos ya divididos por categorías y agregarle su cantidad de búsquedas
     for product in prodByCategories[category]:
       # print(product, ':', prodByCategories[category][product])
       if product in searches:
@@ -75,3 +75,23 @@ def sortByCategoriesSearches(prodByCategories):
     categoriesDict.update({category: dict1})
   # categoriesDict = { category: {product_id: seaches_qty} }
   return categoriesDict
+
+def categoriesSearched():
+  prodByCategories = productsByCategory()
+  searches = queriesByProduct()
+  # searches = { product_id: searchQty}
+  categories = {}
+  print('+-------------------------------+')
+  print('| {0:^29} |'.format('BÚSQUEDAS POR CATEGORÍA'))
+  print('+-------------------------------+')
+  print('| {0:^17} | {1:^9} |'.format('Categoría', 'Búsquedas'))
+  print('+-------------------|-----------+')
+  for category in prodByCategories:
+    searchTimes = 0
+  #   dict1 = {}
+    for product in prodByCategories[category]:
+      if product in searches:
+        searchTimes += searches[product]
+    print('| {0:<17} | {1:>9} |'.format(category, searchTimes))
+    categories.update({category: searchTimes})
+  print('+-------------------------------+')

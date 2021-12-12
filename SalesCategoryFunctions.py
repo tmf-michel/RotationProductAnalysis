@@ -37,6 +37,88 @@ def sortByCategoriesSales(prodByCategories, year):
   # categoriesDict = { category: { product_id: sales_qty } }
   return categoriesDict
 
+# lifestore_sales = [id_sale, id_product, score (from 1 to 5), date, refund (1 for true or 0 to false)]
+# lifestore_products = [id_product, name, price, category, stock]
+def incomeByCategory(year):
+  # print('hello')
+  prodByCategories = productsByCategory()
+  sortedCategories = sortByCategoriesSales(prodByCategories, year)
+  # sortedCategories = { category: { product_id: sales_qty } }
+  incomes = {}
+  # print(sortedCategories)
+  for product in lifestore_products:
+    
+    product_category = product[3]
+    product_id = product[0]
+    product_price = product[2]
+    for prod in sortedCategories[product_category]:
+      if product_id == prod[0]:
+        income = incomes.get(product_category)
+        sales_qty = prod[1]
+        salesIncome = sales_qty * product_price
+        if income == None:
+          incomes.setdefault(product_category, salesIncome)
+        else:
+          extra_income = income + salesIncome
+          incomes.update({product_category: extra_income})
+  # print('incomes', incomes)
+  total = 0
+  print('+----------------------------------+')
+  print('| {0:^32} |'.format('INGRESOS POR CATEGORÍA'))
+  print('+----------------------------------+')
+  print('| {0:^17} |  {1:^11} |'.format('Categoría', 'Ingresos'))
+  print('+-------------------|--------------+')
+  for category in incomes:
+    total += incomes[category]
+    # ${:0,.2f}
+    print('| {0:<17} | $ {1:>10,.2f} |'.format(category, incomes[category]))
+  print('+-------------------|--------------+')
+  print('| {0:^17} | $ {1:>10,.2f} |'.format('TOTAL', total))
+  print('+----------------------------------+')
+  
+
+def totalSalesByCategory(year):
+  prodByCategories = productsByCategory()
+  sortedCategories = sortByCategoriesSales(prodByCategories, year)
+  # sortedCategories = { category: { product_id: sales_qty } }
+  category_sales = {}
+  # print(sortedCategories)
+  for category in sortedCategories:
+    sales = []
+    for product in sortedCategories[category]:
+      
+      product_sales = product[1]
+      sales.append(product_sales)
+    totalSales = sum(sales)
+    category_sales.setdefault(category, totalSales)
+  print("Sales by category")
+  print(category_sales)
+  sortedCategories = sortByCategoriesMonthlySales(prodByCategories, year)
+  print('\n')
+  months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+  category_month_sales = {}
+  cont = 0
+  for month in sortedCategories:
+    sortedMonth = month
+    category_sales = {}
+    print(months[cont].upper())
+    for category in sortedMonth:
+      sales = []
+      # print(category.upper(), '\n')
+      for product in sortedMonth[category]:
+        # print('prod', product)
+        product_sales = product[1]
+        sales.append(product_sales)
+      totalSales = sum(sales)
+      category_sales.setdefault(category, totalSales)
+      print(category,':', totalSales)
+    category_month_sales.setdefault(months[cont], category_sales)
+    cont += 1
+    print('\n')
+  # print('mon', category_month_sales)
+  # category_month_sales = {month:{ categoy: sales_qty} }
+
+  # sortedCategories = [ {category: {product: sales_qty} } ]
 # Función para obtener los productos menos vendidos por categoría
 # Recibe como parámetros la cantidad de datos a mostrar, y el año deseado
 def lessSelledByCategory(qty, year):

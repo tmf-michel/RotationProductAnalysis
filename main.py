@@ -3,10 +3,10 @@
 
 # Archivos y ibrerías importados
 from Login import userAccess
-from SalesListFunctions import mostSelledProducts, mostSelledProductsMonthly
+from SalesListFunctions import mostSelledProducts, mostSelledProductsMonthly, monthlyRefundByProduct
 from SearchListFunctions import mostSearchedProducts
-from SalesCategoryFunctions import lessSelledByCategory, lessSelledByMonthlyCategory
-from SearchCategoryFunctions import lessSearchedByCategory
+from SalesCategoryFunctions import lessSelledByCategory, lessSelledByMonthlyCategory, totalSalesByCategory, incomeByCategory
+from SearchCategoryFunctions import lessSearchedByCategory, categoriesSearched
 from Reviews import bestReviews, bestMonthlyReviews, worstReviews, worstMonthlyReviews, reviewsByCategory, monthlyReviewsByCategory
 from TotalSales import salesPerMonth
 from DataToExport import exportData
@@ -19,6 +19,7 @@ from CommonFunctions import clear
 while(True):  
   # Función para limpiar la consola 
   clear()
+  
   # Función de login, pregunta por usuario y contraseña previamente registrados
   access = userAccess()
 
@@ -35,9 +36,10 @@ while(True):
   4) Los 10 productos menos buscados por categoría
   5) Los 5 productos con las mejores reseñas
   6) Los 5 productos con las peores reseñas
-  7) Reseñas por categoría
+  7) Reseñas, Búsquedas e Ingresos por categoría
   8) Total de ingresos y ventas promedio Mensuales
-  9) Datos crudos para exportar
+  9) Ventas mensuales por categoría y devoluciones por mes
+  10) Datos crudos para exportar
   0) Salir
   """
     # Variables usadas para la cantidad de datos en los reportes
@@ -55,6 +57,7 @@ while(True):
           # Función para mostrar los productos más vendidos
           mostSelledProducts(qtyLow, year)              # 5 Productos con mayores ventas
           mostSelledProductsMonthly(qtyLow, year)
+          
         elif opc == 2:
           # Función para mostrar los productos más buscados
           mostSearchedProducts(qtyHigh)           # 10 productos con mayores búsquedas
@@ -74,13 +77,18 @@ while(True):
           worstReviews(qtyLow, year)                        # 5 productos con peores reseñas / scores
           worstMonthlyReviews(qtyLow, year)
         elif opc == 7:
-          # Función para mostrar el promedio de reseñas por categoría
-          reviewsByCategory(year)                   # Promedio de reseñas de cada categoría
           monthlyReviewsByCategory(year)
+          # Función para mostrar el promedio de reseñas por categoría
+          reviewsByCategory(year) 
+          categoriesSearched()                  # Promedio de reseñas de cada categoría
+          incomeByCategory(year)
         elif opc == 8:
           # Función para mostrar las ventas e ingresos de cada mes y el anual
           salesPerMonth(year)                       # Cantidad de ventas e ingresos por mes ordenados cronológicamente
         elif opc == 9:
+          totalSalesByCategory(year)
+          monthlyRefundByProduct(year)
+        elif opc == 10:
           # Función para mostrar todas las opciones del menú en versión para exportar o copiar/pegar
           exportData(qtyLow, qtyHigh, year)           #Listas sin formato de tabla para imprimir
         # El Usuario desea salir

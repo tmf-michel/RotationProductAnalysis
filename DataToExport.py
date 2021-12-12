@@ -41,8 +41,8 @@ def exportData(qtyLow, qtyHigh, year):
     fila+=1
     for i in data:
       hoja.cell(column=1, row=fila, value=month)
-      hoja.cell(column=2, row=fila, value=data[0][0])
-      hoja.cell(column=3, row=fila, value=data[1][1])
+      hoja.cell(column=2, row=fila, value=i[0])
+      hoja.cell(column=3, row=fila, value=i[1])
       fila+=1
   fila+=1
 ##########################################################################################################
@@ -77,8 +77,8 @@ def exportData(qtyLow, qtyHigh, year):
   for category, data in mostSelledProductsMonthly.items():
     for i in data:
       hoja.cell(column=1, row=fila, value=category)
-      hoja.cell(column=2, row=fila, value=data[0][0])
-      hoja.cell(column=3, row=fila, value=data[0][1])
+      hoja.cell(column=2, row=fila, value=i[0])
+      hoja.cell(column=3, row=fila, value=i[1])
       fila+=1
   fila+=1
 ##########################################################################################################
@@ -266,3 +266,5 @@ def exportData(qtyLow, qtyHigh, year):
   
   
   wb.save(filename = ruta)
+
+  print('Se han exportado exitosamente los datos al archivo: REPORTE-01-CHAVARIN-JORGE.xlsx')

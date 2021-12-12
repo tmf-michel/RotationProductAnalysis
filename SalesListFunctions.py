@@ -35,6 +35,32 @@ def monthlySalesByProduct(lst, year):
       # productsMonth = [ {product_id, sales_qty} ]
   return productsMonth
 
+# Función para extraer las DEVOLUCIONES ensuales de productos en un diccionario, 
+# Recibe como parámetro una lista, en este caso lifestore_sales
+def monthlyRefundByProduct(year):
+  lst = lifestore_sales
+  refunds = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+  ]
+  for product in lst:
+    # Si el producto no pertenece al año deseado
+    # Terminar iteración
+    strYear = '/{}'.format(year)
+    if strYear not in product[3]:
+      continue
+    # Si el producto está marcado como devuelto
+    # Terminar la iteración del for
+    if product[4] != 1:
+      continue
+    # Obtener el mes de la venta y convertirlo en entero
+    # Ej. 27/06/2020 el mes es '06' y se convierte a 6
+    month = int(product[3].split('/')[1])
+    refunds[month-1] = refunds[month-10]+1
+   
+      # productsMonth = [ {product_id, sales_qty} ]
+  print('refunds', refunds)
+  # return productsMonth
+
 # Función que muestra los datos de los productos mas vendidos de forma cruda 
 def mostSelledProductsMonthly(qty, year):
   # Crear una lista de diccionarios por mes con las ventas de la forma
