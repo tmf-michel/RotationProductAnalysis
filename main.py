@@ -56,6 +56,7 @@ while(True):
         if opc == 1:
           # Función para mostrar los productos más vendidos
           mostSelledProducts(qtyLow, year)              # 5 Productos con mayores ventas
+          # Función para mostrar los productos más vendidos por mes
           mostSelledProductsMonthly(qtyLow, year)
           
         elif opc == 2:
@@ -64,6 +65,7 @@ while(True):
         elif opc == 3:
           # Función para mostrar los productos menos vendidos por categoría
           lessSelledByCategory(qtyLow, year)            # 5 productos con menores ventas por categoría
+          # Función para mostrar los productos menos vendidos por categoría por mes
           lessSelledByMonthlyCategory(qtyLow, year)
         elif opc == 4:
           # Función para mostrar los productos menos buscados por categoría
@@ -71,22 +73,27 @@ while(True):
         elif opc == 5:
           # Función para mostrar los productos con las mejores reseñas / scores
           bestReviews(qtyLow, year)                          # 5 productos con mejores reseñas / scores
+          # Función para mostrar los productos con las mejores reseñas / scores por mes
           bestMonthlyReviews(qtyLow, year)
         elif opc == 6:
           # Función para mostrar los productos con las peores reseñas / scores
           worstReviews(qtyLow, year)                        # 5 productos con peores reseñas / scores
+          # Función para mostrar los productos con las peores reseñas / scores por mes
           worstMonthlyReviews(qtyLow, year)
         elif opc == 7:
+          # Función para mostrar el promedio de reseñas por categoría por mes
           monthlyReviewsByCategory(year)
           # Función para mostrar el promedio de reseñas por categoría
           reviewsByCategory(year) 
           categoriesSearched()                  # Promedio de reseñas de cada categoría
-          incomeByCategory(year)
+          incomeByCategory(year)                # Ganancias en pesos por categoría
         elif opc == 8:
           # Función para mostrar las ventas e ingresos de cada mes y el anual
           salesPerMonth(year)                       # Cantidad de ventas e ingresos por mes ordenados cronológicamente
         elif opc == 9:
+          # Función para mostrar los ingresos y ventas de cada categoría al mes
           totalSalesByCategory(year)
+          # Función para mostrar la cantidad de productos devueltos por mes
           monthlyRefundByProduct(year)
         elif opc == 10:
           # Función para mostrar todas las opciones del menú en versión para exportar o copiar/pegar
