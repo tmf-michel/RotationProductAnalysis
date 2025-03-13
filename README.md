@@ -29,12 +29,13 @@ Para este proyecto se analizaron las reseñas, ventas y búsquedas de cada produ
 ## Ejecutando el proyecto ⚙️
 
 1. Para ejecutar el proyecto desde [Replit], da clic en el botón de reproducción, ubicado en la parte superior central de la pantalla.
-2. Ingresa usuario y contraseña:
+2. De igual forma odras ejecutar el proyecto haciendo clic en el archivo `RotationProductAnalysis.exe`.
+3. Ingresa usuario y contraseña:
   Usuario: `Admin`
   Contraseña: `2021`
-3. Elije el año para analizar. Para términos de este proyecto se debe teclear el año `2020`.
-4. Elije alguna de las opciones del Menú, tecleando su número correspondiente.
-5. Al seleccionar la opción `10) Datos crudos para exportar`, se generará un archivo con extensión .xlsx con todas las opciones del menú.
+4. Elije el año para analizar. Para términos de este proyecto se debe teclear el año `2020`.
+5. Elije alguna de las opciones del Menú, tecleando su número correspondiente.
+6. Al seleccionar la opción `10) Datos crudos para exportar`, se generará un archivo con extensión .xlsx con todas las opciones del menú.
 
 ## Analizando Resultados 📦
 Podras analizar los resultados desde la consola, o leyendo el archivo `../REPORTE-01-LIFESTORE` de este proyecto.
